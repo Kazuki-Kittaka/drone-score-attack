@@ -1,0 +1,107 @@
+{
+  "checkedAt": "2026-10-05",
+  "browser": "Chromium 153 (headless)",
+  "expected": 16,
+  "unexpected": 0,
+  "npmInstall": "passed",
+  "npmBuild": "passed",
+  "tests": [
+    {
+      "name": "一連の操作・空欄検証・トリム・新記録・二重STOP・再読込",
+      "status": "expected",
+      "durationMs": 4150
+    },
+    {
+      "name": "2位",
+      "status": "expected",
+      "durationMs": 3995
+    },
+    {
+      "name": "3位",
+      "status": "expected",
+      "durationMs": 3904
+    },
+    {
+      "name": "TOP10入り・11件目切り捨て",
+      "status": "expected",
+      "durationMs": 3846
+    },
+    {
+      "name": "TOP10圏外",
+      "status": "expected",
+      "durationMs": 3924
+    },
+    {
+      "name": "既存1位更新・画像背景・演出ON",
+      "status": "expected",
+      "durationMs": 4963
+    },
+    {
+      "name": "保存保持・管理画面・設定保存・JSON・初期化確認",
+      "status": "expected",
+      "durationMs": 962
+    },
+    {
+      "name": "保存エラーでも計測・結果・JSONバックアップ可能",
+      "status": "expected",
+      "durationMs": 3960
+    },
+    {
+      "name": "破損ランキングを上書きしない",
+      "status": "expected",
+      "durationMs": 3970
+    },
+    {
+      "name": "オフライン再読み込み・計測",
+      "status": "expected",
+      "durationMs": 4787
+    },
+    {
+      "name": "計測中再読み込みは待機に戻る・記録追加なし",
+      "status": "expected",
+      "durationMs": 3766
+    },
+    {
+      "name": "12文字・絵文字・狭い画面・3D無効でも操作可能",
+      "status": "expected",
+      "durationMs": 448
+    },
+    {
+      "name": "3Dコード読込失敗でもSTART・STOP・保存が動く",
+      "status": "expected",
+      "durationMs": 4190
+    },
+    {
+      "name": "WebGL非対応でも計測・保存が動く",
+      "status": "expected",
+      "durationMs": 4154
+    },
+    {
+      "name": "アニメーションOFF・SE OFF・3D OFFの一連動作とスクリーンショット",
+      "status": "expected",
+      "durationMs": 8403
+    },
+    {
+      "name": "1366×768でランキング・STOPが画面内に収まる",
+      "status": "expected",
+      "durationMs": 4288
+    }
+  ],
+  "reproducedFromZip": {
+    "npmInstall": "passed",
+    "npmBuild": "passed"
+  },
+  "finalUiRegression": {
+    "passed": 2,
+    "failed": 0
+  },
+  "githubPagesUpdate": {
+    "rootBuild": "passed",
+    "subpathBuild": "passed",
+    "rootAdminAndOfflineTests": 2,
+    "queryAdminReloadTest": "passed",
+    "subpathOfflineRace": "passed",
+    "workflowYaml": "parsed",
+    "deployment": "not_run"
+  }
+}
