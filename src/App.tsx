@@ -762,7 +762,7 @@ export default function App() {
       </main>
       {!admin && screen !== "playing" && screen !== "countdown" && (
         <footer>
-          <span>DRONE RACE · TIME ATTACK</span>
+          <span>専門学校IVY DRONE TIME ATTACK</span>
           <span className="offline-status">
             {import.meta.env.PROD
               ? offlineReady
