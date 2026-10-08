@@ -194,3 +194,7 @@ ActionsがPagesのbase_pathを取得してビルドするため、リポジト�
 公開前はGitHub Actionsの成功と実際のURLでのSTART/STOP・音・再読み込みを確認してください。今回、外部リポジトリへのpushやPagesの実デプロイは行っていません。
 
 Pagesとローカルサーバーは別URLなので、ランキングも別になります。当日は使用するURLを固定してください。初回アクセス時に「オフライン準備完了」を確認すると、切断後も再読み込みと計測ができます。
+
+BGM素材：
+https://commons.nicovideo.jp/works/nc247790
+画像素材はすべてAIで作成しています。
