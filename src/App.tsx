@@ -547,6 +547,7 @@ export default function App() {
                       </label>
                     ))}
                     <p className="muted">
+                      BGMは既定でOFF。設定画面からのみONにできます。
                       音源は同梱の合成SE。BGMは任意のファイルを追加すると再生します。
                     </p>
                     <button onClick={fullscreen}>全画面表示 / 解除</button>
