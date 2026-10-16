@@ -7,6 +7,7 @@ export type RankingRecord = {
 export type Settings = {
   se: boolean;
   bgm: boolean;
+  raceBgm: boolean;
   seVolume: number;
   bgmVolume: number;
   three: boolean;
@@ -18,6 +19,7 @@ export const SETTINGS_KEY = "droneRaceSettings";
 export const defaults: Settings = {
   se: true,
   bgm: false,
+  raceBgm: true,
   seVolume: 0.6,
   bgmVolume: 0.15,
   three: true,
@@ -74,7 +76,7 @@ export function loadSettings(): Settings {
   try {
     const p = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}");
     const s = { ...defaults };
-    for (const k of ["se", "bgm", "three", "confetti", "animation"] as const)
+    for (const k of ["se", "bgm", "raceBgm", "three", "confetti", "animation"] as const)
       if (typeof p[k] === "boolean") s[k] = p[k];
     for (const k of ["seVolume", "bgmVolume"] as const)
       if (typeof p[k] === "number" && Number.isFinite(p[k]))

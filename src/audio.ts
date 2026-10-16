@@ -51,3 +51,27 @@ export function bgm(on: boolean, s: Settings) {
     /* optional */
   }
 }
+
+const RACE_BGM = "kamatamago_C00003_heaven-and-hell";
+/** 起動時に読み込んでおき、スタート直後に遅延なく鳴らす */
+export function preloadRaceBgm() {
+  try {
+    get(RACE_BGM, true);
+  } catch {
+    /* optional */
+  }
+}
+/** スタートボタンから計測終了まで流すレースBGM */
+export function raceBgm(on: boolean, s: Settings) {
+  try {
+    const h = get(RACE_BGM, true);
+    if (!h) return;
+    if (on && s.raceBgm) {
+      h.volume(s.bgmVolume);
+      h.stop();
+      h.play();
+    } else h.stop();
+  } catch {
+    /* audio never blocks controls */
+  }
+}

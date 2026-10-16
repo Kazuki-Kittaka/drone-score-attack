@@ -23,7 +23,7 @@ import {
   type RankingRecord,
   type Settings,
 } from "./model";
-import { cue, bgm } from "./audio";
+import { cue, bgm, raceBgm, preloadRaceBgm } from "./audio";
 import arena from "./assets/backgrounds/bg_drone_race_arena.png";
 import victory from "./assets/backgrounds/bg_drone_race_victory.png";
 import logo from "./assets/logo/logo_drone_obstacle_race.png";
@@ -178,6 +178,12 @@ export default function App() {
     return () => bgm(false, settings);
   }, [screen, admin, settings]);
   useEffect(() => {
+    preloadRaceBgm();
+  }, []);
+  useEffect(() => {
+    if (screen !== "countdown" && screen !== "playing") raceBgm(false, settings);
+  }, [screen]);
+  useEffect(() => {
     function update(e: StorageEvent) {
       if (e.key === RANKING_KEY) {
         const r = loadRanking();
@@ -192,6 +198,7 @@ export default function App() {
   }, []);
   function begin() {
     if (screenRef.current !== "ready") return;
+    raceBgm(true, settings);
     cue("countdown", settings);
     setCount(3);
     go("countdown");
@@ -242,6 +249,7 @@ export default function App() {
     stopped.current = true;
     const ms = performance.now() - started.current;
     setElapsed(ms);
+    raceBgm(false, settings);
     const record = {
       id: newId(),
       nickname: normalizeNickname(nickname),
@@ -507,6 +515,7 @@ export default function App() {
                       [
                         ["se", "SE"],
                         ["bgm", "BGM"],
+                        ["raceBgm", "レースBGM"],
                         ["three", "Three.js"],
                         ["confetti", "紙吹雪"],
                         ["animation", "アニメーション"],
@@ -547,8 +556,8 @@ export default function App() {
                       </label>
                     ))}
                     <p className="muted">
-                      BGMは既定でOFF。設定画面からのみONにできます。
-                      音源は同梱の合成SE。BGMは任意のファイルを追加すると再生します。
+                      待機画面のBGMは既定でOFF。設定画面からのみONにできます。
+                      レースBGMは既定でON。スタートボタンで再生し、ストップで止まります（音量はBGM音量）。
                     </p>
                     <button onClick={fullscreen}>全画面表示 / 解除</button>
                     <button onClick={() => navigateAdmin(false)}>
